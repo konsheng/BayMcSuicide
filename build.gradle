@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '8.1.1' // 引入 Shadow 插件
+}
+
+group = 'org.Konsheng.BayMcSuicide'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
+    }
+    maven {
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
+    }
+}
+
+dependencies {
+    compileOnly("org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT")
+
+    // Adventure API and MiniMessage dependencies
+    implementation group: 'net.kyori', name: 'adventure-api', version: '4.17.0'
+    implementation group: 'net.kyori', name: 'adventure-text-minimessage', version: '4.17.0'
+    implementation group: 'net.kyori', name: 'adventure-platform-bukkit', version: '4.3.4'
+}
+
+def targetJavaVersion = 17
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release.set(targetJavaVersion)
+    }
+}
+
+processResources {
+    def props = [version: version]
+    inputs.properties props
+    filteringCharset 'UTF-8'
+    filesMatching('plugin.yml') {
+        expand props
+    }
+}
+
+// 配置 Shadow 插件打包外部依赖
+tasks.named('build').configure {
+    dependsOn 'shadowJar'
+}
+
+shadowJar {
+    archiveClassifier.set('') // 将输出的 jar 文件命名为正常插件名称
+    relocate 'net.kyori', 'org.Konsheng.BayMcDupe.shaded.net.kyori' // 避免依赖冲突
+}
