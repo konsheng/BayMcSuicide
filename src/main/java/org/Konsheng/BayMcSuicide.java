@@ -61,6 +61,7 @@ public class BayMcSuicide extends JavaPlugin {
 
             // 检查输入的命令
             if (label.equalsIgnoreCase("kill") ||
+                    label.equalsIgnoreCase("514") ||
                     label.equalsIgnoreCase("suicide") ||
                     label.equalsIgnoreCase("die") ||
                     label.equalsIgnoreCase("zisha")) {

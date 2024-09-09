@@ -8,6 +8,9 @@ commands:
   kill:
     description: 玩家自杀
     permission: baymc.suicide
+  514:
+    description: 玩家自杀
+    permission: baymc.suicide
   suicide:
     description: 玩家自杀
     permission: baymc.suicide
