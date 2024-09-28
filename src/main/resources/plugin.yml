@@ -1,22 +1,23 @@
 name: BayMcSuicide
 version: '1.0'
 main: org.Konsheng.BayMcSuicide
-api-version: '1.21'
+api-version: '1.20'
 authors: [ Konsheng ]
-description: 允许玩家使用自杀命令
+description: 为玩家新增自杀命令
+website: https://baymc.com
 commands:
   kill:
-    description: 玩家自杀
+    description: 玩家使用 /kill 命令自杀
     permission: baymc.suicide.kill
   514:
-    description: 玩家自杀
+    description: 玩家使用 /514 命令自杀
     permission: baymc.suicide.514
   suicide:
-    description: 玩家自杀
+    description: 玩家使用 /suicide 命令自杀
     permission: baymc.suicide.suicide
   die:
-    description: 玩家自杀
+    description: 玩家使用 /die 命令自杀
     permission: baymc.suicide.die
   zisha:
-    description: 玩家自杀
+    description: 玩家使用 /zisha 命令自杀
     permission: baymc.suicide.zisha

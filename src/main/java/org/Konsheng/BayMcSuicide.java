@@ -21,6 +21,7 @@ public class BayMcSuicide extends JavaPlugin {
     private final String prefix = "<gradient:#495aff:#0acffe><b>BayMc</b></gradient> <gray>» ";
     private final String suicideMessage = "<white>您已进行自杀操作";
     private final String nonPlayerMessage = "<white>此命令只能由玩家执行";
+    private final String startsuicideMessage = "<white>您已成功执行自杀命令";
 
     // 保存玩家上次执行命令的时间
     private final HashMap<UUID, Long> lastSuicideTime = new HashMap<>();
@@ -82,6 +83,9 @@ public class BayMcSuicide extends JavaPlugin {
     private void playSoundAndSuicide(Player player) {
         // 播放音效
         player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1.0f, 1.0f);
+
+        // 发送提示消息
+        sendFormattedMessage(player, startsuicideMessage);
 
         // 延迟2秒执行，确保音效播放完成后再杀死玩家
         Bukkit.getScheduler().runTaskLater(this, () -> {
