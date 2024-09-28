@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/BayMcSuicide.main.iml" filepath="$PROJECT_DIR$/.idea/modules/BayMcSuicide.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/BayMcSuicide.test.iml" filepath="$PROJECT_DIR$/.idea/modules/BayMcSuicide.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.Konsheng.BayMcSuicide.BayMcSuicide.main.iml" filepath="$PROJECT_DIR$/.idea/modules/org.Konsheng.BayMcSuicide.BayMcSuicide.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/org.Konsheng.BayMcSuicide.BayMcSuicide.test.iml" filepath="$PROJECT_DIR$/.idea/modules/org.Konsheng.BayMcSuicide.BayMcSuicide.test.iml" />
     </modules>
   </component>
 </project>
